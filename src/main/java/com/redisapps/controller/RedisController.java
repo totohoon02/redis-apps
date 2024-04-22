@@ -4,11 +4,13 @@ import com.redisapps.Service.RedisService;
 import com.redisapps.dto.RedisGetRequestDto;
 import com.redisapps.dto.RedisPostRequestDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/redis")
+@RequestMapping("redis")
+@Slf4j
 public class RedisController {
     private final RedisService redisService;
 
@@ -21,4 +23,10 @@ public class RedisController {
     public void setValue(@RequestBody RedisPostRequestDto<String> request){
         redisService.setValues(request.getKey(), request.getValue());
     }
+
+    @PostMapping("/expired")
+    public void setExpireValue(@RequestBody RedisPostRequestDto<String> request){
+        redisService.setExpiredValue(request.getKey(), request.getValue(), 10);
+    }
+
 }

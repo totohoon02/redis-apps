@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+
+</head>
+<body>
+    <div class="box">
+        <div class="innerBox" id="emailBox1">
+            <label for="email">이메일</label>
+            <input type="email" name="email" id="email">
+            <button id="btnOtp">제출</button>
+            <span id="timer"></span>
+        </div>
+        <div class="innerBox" id="emailBox2">
+            <label for="verify">인증번호</label>
+            <input type="text" name="verify" id="verify">
+            <button id="btnVerify">인증하기</button>
+            <span id="code"></span>
+        </div>
+    </div>
+    <script th:src="@{/js/index.js}"></script>
+</body>
+</html>
