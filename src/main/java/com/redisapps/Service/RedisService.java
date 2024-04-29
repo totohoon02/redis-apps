@@ -17,6 +17,16 @@ public class RedisService {
         values.set(key, data);
     }
 
+    public void setValuesNX(String key, String data){
+        ValueOperations<String, Object> values = redisTemplate.opsForValue();
+        values.setIfAbsent(key, data);
+    }
+
+    public void removeValues(String key){
+        ValueOperations<String, Object> values = redisTemplate.opsForValue();
+        values.getAndDelete(key);
+    }
+
     public void setExpiredValue(String key, String data, int expiredAfter) {
         ValueOperations<String, Object> values = redisTemplate.opsForValue();
         values.set(key, data, expiredAfter, TimeUnit.SECONDS);
