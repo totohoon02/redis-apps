@@ -30,3 +30,10 @@ implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 - redis에 실행 중인지 확인하는 키를 생성 후 존재하지 않으면 스레드의 작업을 실행
 
 ![alt text](image.png)
+
+### Rate Limit
+
+- 서버의 안정성/보안을 위해 연속된 요청을 제한
+- 서버에 이미 키가 존재하는지 간단하게 확인
+  ![alt text](code200.png)
+  ![alt text](codeTooMany.png)
